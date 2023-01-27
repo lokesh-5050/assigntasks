@@ -14,7 +14,10 @@
     <h2>Admin</h2>
     <h5 class="bg-success p-2">All Users</h5>
   </div>
+
+  
   <div class="container p-1">
+    <a href="/adduser" class="btn btn-primary btn mb-3">Adduser</a>
 
     <table class="table table-dark table-stripped text-center">
       <thead>
@@ -31,7 +34,7 @@
           <tr>
             <td>
               <%= e.id %>
-            </td>s
+            </td>
             <td>
               <%= e.name %>
             </td>
@@ -43,7 +46,7 @@
             </td>
             <td>
               <a href="/deleteuser/<%= e.id %>" class="btn btn-primary btn ">Remove</a>
-              <a  class="btn btn-primary btn ">Assign Task</a>
+              <a href="/assigntask/<%= e.id %> " class="btn btn-primary btn ">Assign Task</a>
             </td>
             <% }); %>
           </tr>
