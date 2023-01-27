@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
-    database: 'sakila',
+    database: 'assign',
     user: 'root',
     password: 'root123'
 });
@@ -13,10 +13,12 @@ connection.connect(function (err) {
 
     console.log(`Connected as id + connection.threadId`)
 })
-connection.query('SELECT * FROM city', function (error, results, fields) {
+connection.query('SELECT * FROM users', function (error, results, fields) {
     if (error)
         throw error;
     results.forEach(result => {
         console.log(result);
     });
 });
+
+module.exports = connection;
