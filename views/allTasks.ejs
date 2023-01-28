@@ -16,7 +16,7 @@
     </div>
 
     <div class="container p-2">
-        <a type="button" href="/" class="btn btn-primary position-relative">
+        <a type="button" href="/homePage" class="btn btn-primary position-relative">
             Go Back
         </a>
         <button type="button" class="btn btn-primary position-relative">
@@ -41,7 +41,6 @@
             <div class="alert d-flex justify-content-between alert-<%= e.pending == 'True' ? "warning":"info" %>"
                 role="alert">
                 <%= e.task %> => Assigned TO : <%= e.name %>
-                        <a href="/doneTask/<%= e.id %> " class="btn-<%= e.pending == 'True' ? 'success' : 'danger'  %>  btn"><%= e.pending == 'True' ? 'Mark Done' : 'Mark Pending'  %> </a>
                         <a href="/removeTask/<%= e.id %> " class="btn-danger btn">Remove Task</a>
             </div>
             <h4>

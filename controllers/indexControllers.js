@@ -148,12 +148,6 @@ exports.handleMarkDone = async (req, res, next) => {
     let taskId = req.params.id
     console.log(taskId);
 
-    // let sql = `Update tasks Set pending=false Where assignedTo="${taskId}" `;
-    // connection.query(sql, (err, row) => {
-    //     if (err) throw err;
-    //     console.log();
-    //     res.redirect("back")
-    // })
 
     let checkIsPending = `Select *from tasks where assignedTo="${taskId}"`;
     connection.query(checkIsPending, (err, data) => {
