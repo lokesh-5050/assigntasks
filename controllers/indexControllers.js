@@ -19,7 +19,7 @@ exports.handleUserRemoval = async (req, res, next) => {
     let sql = `Delete From users Where id="${userId}" `;
     connection.query(sql, (err, row) => {
         if (err) throw err;
-        res.redirect("/")
+        res.redirect("/homePage")
     })
 }
 
@@ -42,7 +42,7 @@ exports.handleAddUser = (req, res, next) => {
                 let setData = connection.query(sql, async (err, setted) => {
                     if (err) throw err;
                     const token = jwt.sign({ email: data.email, id: uniqueId }, "2347eghdshihf089r4w0aef", { expiresIn: '7d' });
-                    res.redirect("/")
+                    res.redirect("/homePage")
                 })
             })
         } else {
@@ -80,7 +80,7 @@ exports.handleAddTask = async (req, res, next) => {
     connection.query(addToTasks, (err, addedToTask) => {
         if (err) throw err;
     })
-    res.redirect("/")
+    res.redirect("/homePage")
 }
 
 exports.handleAssignTaskPage = async (req, res, next) => {
@@ -118,7 +118,8 @@ exports.handleMultipleUsersTask = async (req, res, next) => {
     }
 
 
-    res.send(req.body)
+    // res.send(req.body)
+    res.redirect('/homePage')
 
 
 }
@@ -243,5 +244,11 @@ exports.handleExcelExport = async (req, res, next) => {
         console.log('Close the database connection.');
     });
 
-    res.redirect("/")
+    res.redirect("/homePage")
+}
+
+
+exports.handleLogout = async(req,res,next)=>{
+    res.clearCookie("x-access-token")
+    res.redirect('/homePage')
 }
