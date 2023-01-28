@@ -11,13 +11,11 @@ connection.connect(function (err) {
         return
     }
 
-    console.log(`Connected as id + connection.threadId`)
 })
 connection.query('SELECT * FROM users', function (error, results, fields) {
     if (error)
         throw error;
     results.forEach(result => {
-        console.log(result);
     });
 });
 
