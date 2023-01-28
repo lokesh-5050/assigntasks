@@ -38,7 +38,7 @@
 
     <div class="container p-4">
         <% data.forEach(e=> { %>
-            <div class="alert d-flex justify-content-between alert-<%= e.pending == 'True' ? "warning":"info" %>"
+            <div class="alert d-flex justify-content-between alert-<%= e.pending == 'True' ? " warning":"info" %>"
                 role="alert">
                 <%= e.task %> => Assigned TO : <%= e.name %>
                         <a href="/removeTask/<%= e.id %> " class="btn-danger btn">Remove Task</a>

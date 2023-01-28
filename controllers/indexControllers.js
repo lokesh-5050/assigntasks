@@ -186,7 +186,7 @@ exports.handleExcelExport = async (req, res, next) => {
             { header: 'name', key: 'name', width: 40 },
             { header: 'email', key: 'email', width: 40 },
             { header: 'mobile', key: 'mobile', width: 40, outlineLevel: 1 },
-            { header: 'password', key: 'password', width: 100, outlineLevel: 1 },
+            { header: 'HashedPassword', key: 'password', width: 100, outlineLevel: 1 },
             { header: 'tasks', key: 'tasks', width: 100, outlineLevel: 1 },
             { header: 'options', key: 'options', width: 10, outlineLevel: 1 }
         ];
@@ -225,24 +225,15 @@ exports.handleExcelExport = async (req, res, next) => {
             .then(function () {
                 console.log("file saved!");
             });
-
-
-
-
     }
     )
-    connection.end(function (err) {
-        if (err) {
-            return console.log('error:' + err.message);
-        }
-        console.log('Close the database connection.');
-    });
+
 
     res.redirect("/homePage")
 }
 
 
-exports.handleLogout = async(req,res,next)=>{
+exports.handleLogout = async (req, res, next) => {
     res.clearCookie("x-access-token")
     res.redirect('/homePage')
 }
